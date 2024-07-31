@@ -1,10 +1,11 @@
+import ToDoInput from "./components/ToDoInput"
 
 function App() {
   return (
     <>
-     <h1 className="text-3xl font-bold underline">
-        Hello world!
-    </h1>
+    <div className="border-2 border-red-400 mx-40 mt-6">
+        <ToDoInput/>
+    </div>
     </>
   )
 }
