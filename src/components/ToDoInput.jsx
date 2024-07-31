@@ -21,7 +21,7 @@ export default function ToDoInput() {
   function handleSubmit(e) {
     e.preventDefault();
     if (task.trim() !== '') {
-      setTodos(prev => [...prev, task]);
+      setTodos(prev => [...prev, {task,completed: false}]);
       setTask('');
     } else {
       console.log('wrong input');
@@ -31,6 +31,13 @@ export default function ToDoInput() {
   function removeItem(index) {
     const newTodos = todos.filter((_,i) => i !== index)
     setTodos(newTodos);
+  }
+
+  function handleCompleted(index){
+    setTodos(prev =>
+      prev.map((todo,i) =>
+      i === index ?{...todo, completed: !todo.completed}: todo)
+    )
   }
 
   return (
@@ -55,8 +62,8 @@ export default function ToDoInput() {
         <ul>
           {todos.map((todo, index) => (
             <div key={index} className="flex items-center border-b border-gray-200 py-5">
-              <input type="checkbox" className="mx-3 size-4 mt-1"></input>
-              <li className="mr-auto text-2xl">{todo}</li>
+              <input type="checkbox" onChange={()=>handleCompleted(index)}  className="mx-3 size-4 mt-1"></input>
+              <li className={`mr-auto text-2xl ${todo.completed? 'line-through': ''}`}>{todo.task}</li>
               <div className="bg-gray-100 rounded-full h-11 w-11 flex items-center justify-center">
                   <MdDelete className="text-red-500 text-2xl cursor-pointer" onClick={()=>removeItem(index)} />
               </div>
