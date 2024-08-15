@@ -1,10 +1,12 @@
-import ToDoInput from "./components/ToDoInput"
+import AddTodo from "./components/AddTodo"
+import DisplayTodo from "./components/DisplayTodo"
 
 function App() {
   return (
     <>
     <div className="mx-40 mt-6">
-        <ToDoInput/>
+        <AddTodo></AddTodo>
+        <DisplayTodo></DisplayTodo>
     </div>
     </>
   )
