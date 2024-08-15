@@ -23,7 +23,6 @@ export default function AddTodo() {
       }
   return (
      <div className="pt-32">
-         <h1 className="text-6xl text-gray-200 font-bold text-center my-4">todos</h1>
             <form className="relative" onSubmit={handleSubmit}>
             <div className="flex items-center">
                 <input
